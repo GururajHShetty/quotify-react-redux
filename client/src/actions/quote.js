@@ -29,7 +29,7 @@ export const startSaveQuote = (quote) => {
                 if (response.data.errors) {
                     window.alert('Already Saved')
                 } else {
-                    console.log(response.data)
+                    // console.log(response.data)
                     dispatch(startListQuotes())
                 }
             })

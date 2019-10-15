@@ -22,7 +22,14 @@ function QuoteShow(props) {
                             props.dispatch(startSaveQuote(props.quote))
                         }
                     }} >Save</button>
-                </div>) : (<Spinner type="grow" color="success" />)
+                </div>) : (
+                    <div>
+                        <Spinner type="grow" color="success" />
+                        <Spinner type="grow" color="warning" />
+                        <Spinner type="grow" color="secondary" />
+                        <Spinner type="grow" color="primary" />
+                    </div>
+                )
             }
         </div>
 

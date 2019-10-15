@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { startListQuotes } from '../actions/quotes'
-import { InputGroup, InputGroupAddon, Button, Spinner } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Button, Spinner } from 'reactstrap'
 
 
 class QuoteEdit extends React.Component {
@@ -17,22 +17,26 @@ class QuoteEdit extends React.Component {
 
     componentDidMount() {
         const _id = this.props.match.params.id
-        axios.get(`http://localhost:3010/quote/get/${_id}`)
-            .then(response => {
-                const id = response.data._id
-                const quote = response.data.quoteText
-                const author = response.data.quoteAuthor
-                this.setState({ quote, author, id })
-            })
-        //     console.log(this.props.quotes)
-        // const quoteToEdit = this.props.quotes.find(quote => {
-        //     return quote._id === _id
-        // })
 
-        // const id = quoteToEdit._id
-        // const quote = quoteToEdit.quoteText
-        // const author = quoteToEdit.quoteAuthor
-        // this.setState({ quote, author, id })
+        if (this.props.quotes.length > 0) {
+            const quoteToEdit = this.props.quotes.find(quote => {
+                return quote._id === _id
+            })
+
+            const id = quoteToEdit._id
+            const quote = quoteToEdit.quoteText
+            const author = quoteToEdit.quoteAuthor
+            this.setState({ quote, author, id })
+        } else {
+            axios.get(`http://localhost:3010/quote/get/${_id}`)
+                .then(response => {
+                    const id = response.data._id
+                    const quote = response.data.quoteText
+                    const author = response.data.quoteAuthor
+                    this.setState({ quote, author, id })
+                })
+        }
+        // console.log(this.props.quotes)
     }
 
     handleChange = e => {

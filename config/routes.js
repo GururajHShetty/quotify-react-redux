@@ -9,5 +9,4 @@ router.delete('/quotes/:id',quoteController.destroy)
 router.get('/quote/get/:id',quoteController.get)
 router.put('/quote/edit/:id',quoteController.update)
 
-
 module.exports =  router
