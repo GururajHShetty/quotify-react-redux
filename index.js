@@ -14,6 +14,6 @@ app.listen(port, function(){
     console.log('listening on port', port)
 })
 
-// if(process.env.NODE.ENV === "production"){
-//     app.use(express.static('client/build'))
-// }
+if(process.env.NODE.ENV === "production"){
+    app.use(express.static('client/build'))
+}
