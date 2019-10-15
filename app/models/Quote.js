@@ -4,10 +4,12 @@ const Schema = mongoose.Schema
 const quoteSchema = new Schema({
     quoteText : {
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     quoteAuthor : {
-        type:String
+        type:String,
+        unique:true
     }
 })
 

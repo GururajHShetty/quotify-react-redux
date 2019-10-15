@@ -26,8 +26,12 @@ export const startSaveQuote = (quote) => {
     return dispatch => {
         axios.post('http://localhost:3010', quote)
             .then(response => {
-                console.log(response.data)
-                dispatch(startListQuotes())
+                if (response.data.errors) {
+                    window.alert('Already Saved')
+                } else {
+                    console.log(response.data)
+                    dispatch(startListQuotes())
+                }
             })
             .catch(err => {
                 console.log(err)
@@ -55,3 +59,4 @@ export const startRemoveQuote = id => {
             })
     }
 }
+

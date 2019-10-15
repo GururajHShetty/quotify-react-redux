@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import { getNextQuote } from './actions/quote'
 import {startListQuotes} from './actions/quotes'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = configureStore()
 
