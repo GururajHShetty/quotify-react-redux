@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server" : "node index.js",
     "client":"npm start --prefix client",
-    "dev": "concurrently \"nodemon index.js\" \"cd client && npm start\""
+    "dev": "concurrently \"nodemon index.js\" \"cd client && npm start\"",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "author": "",
   "license": "ISC",
